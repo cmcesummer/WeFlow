@@ -12,7 +12,8 @@
     "build:win32": "rimraf dist && electron-packager ./ WeFlow --platform=win32 --arch=ia32 --icon=./assets/img/WeFlow.png --overwrite --out ./dist --version=0.37.8 --ignore=.github",
     "build:win64": "rimraf dist && electron-packager ./ WeFlow --platform=win32 --arch=x64 --icon=./assets/img/WeFlow.png --overwrite --out ./dist --version=0.37.8 --ignore=.github",
     "pack": "build --target dir",
-    "dist": "rimraf dist && build"
+    "dist": "rimraf dist && build",
+    "ve": "electron -v"
   },
   "repository": {
     "type": "git",
@@ -31,7 +32,8 @@
   },
   "homepage": "https://github.com/weixin/WeFlow#readme",
   "devDependencies": {
-    "electron-packager": "^8.7.0",
+    "electron": "^3.0.10",
+    "electron-packager": "^10.1.0",
     "electron-prebuilt": "^0.37.0",
     "rimraf": "^2.5.2"
   },

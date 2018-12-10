@@ -1,13 +1,17 @@
 'use strict';
 
 const electron = require('electron');
-const app = electron.app;
-const dialog = electron.dialog;
-const ipc = electron.ipcMain;
-const BrowserWindow = electron.BrowserWindow;
+const { app, dialog, ipcMain, BrowserWindow } = require('electron');
+// const app = electron.app;
+// const dialog = electron.dialog;
+// const ipc = electron.ipcMain;
+// const BrowserWindow = electron.BrowserWindow;
 // const autoUpdater = electron.autoUpdater;
 const path = require('path');
 
+console.log(electron)
+console.log(electron.app)
+// ctrl + shilft + i
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
@@ -18,7 +22,7 @@ let willClose = false;
 function createWindow() {
     // Create the browser window.
     mainWindow = new BrowserWindow({
-        width: 360,
+        width: 860,
         minHeight: 572,
         resizable: false,
         title: 'WeFlow',
@@ -103,7 +107,7 @@ app.on('activate', function () {
 });
 
 //检查更新
-ipc.on('checkForUpdate', function (event, status) {
+ipcMain.on('checkForUpdate', function (event, status) {
     let options = {};
 
     if(status){
